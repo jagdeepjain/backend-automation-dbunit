@@ -1,4 +1,4 @@
-package org.automation.utilities;
+package org.jagdeep.example.automation.utils;
 
 public class Utils {
 

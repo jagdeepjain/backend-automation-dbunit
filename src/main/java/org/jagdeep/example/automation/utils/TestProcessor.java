@@ -1,4 +1,4 @@
-package org.automation.utilities;
+package org.jagdeep.example.automation.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

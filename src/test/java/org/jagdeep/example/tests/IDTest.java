@@ -1,9 +1,9 @@
-package org.backend.automation.tests;
+package org.jagdeep.example.tests;
 
 import java.io.IOException;
 
-import org.backend.automation.main.BaseTest;
-import org.db.hsqldb.HSQLDB;
+import org.jagdeep.example.hsqldb.HSQLDB;
+import org.jagdeep.example.tests.main.BaseTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

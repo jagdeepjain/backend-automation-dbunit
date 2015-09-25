@@ -2,7 +2,7 @@
  * @author jagdeepjain
  *
  */
-package org.automation.utilities;
+package org.jagdeep.example.automation.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;

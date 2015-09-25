@@ -1,4 +1,4 @@
-package org.backend.automation.main;
+package org.jagdeep.example.tests.main;
 
 import static org.junit.Assert.fail;
 
@@ -6,15 +6,15 @@ import java.io.IOException;
 
 import junit.framework.ComparisonFailure;
 
-import org.automation.utilities.TestAssertionLogger;
-import org.automation.utilities.TestProcessor;
-import org.automation.utilities.TestPropertiesProcessor;
-import org.db.hsqldb.HSQLDB;
 import org.dbunit.Assertion;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.ITable;
 import org.dbunit.operation.DatabaseOperation;
+import org.jagdeep.example.automation.utils.TestAssertionLogger;
+import org.jagdeep.example.automation.utils.TestProcessor;
+import org.jagdeep.example.automation.utils.TestPropertiesProcessor;
+import org.jagdeep.example.hsqldb.HSQLDB;
 
 public class BaseTest {
 
