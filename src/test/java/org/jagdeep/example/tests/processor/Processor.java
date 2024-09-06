@@ -12,7 +12,7 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
-public class TestProcessor {
+public class Processor {
     IDatabaseConnection iDatabaseConnection = null;
     public void setDatabaseConnection(IDatabaseConnection iDatabaseConnection) {
         this.iDatabaseConnection = iDatabaseConnection;

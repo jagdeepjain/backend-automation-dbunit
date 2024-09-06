@@ -36,7 +36,7 @@ public class HSQLDB {
         }
         return connection;
     }
-    public void query(String sqlQuery)  {
+    public void create(String sqlQuery)  {
         try {
             Statement statement = getConnection().createStatement();
             statement.executeQuery(sqlQuery);
@@ -50,9 +50,31 @@ public class HSQLDB {
             preparedStatement.setInt(1, id);
             preparedStatement.setString(2, firstName);
             preparedStatement.setString(3, lastName);
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
         } catch (SQLException e) {
             logger.severe("ERROR: Unable to execute insert query.");
         }
+    }
+    public void update(String updateQuery, int id, String firstName, String lastName) {
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(updateQuery);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.severe("ERROR: Unable to execute update query.");
+        }
+    }
+    public ResultSet select(String selectQuery, int id) {
+        ResultSet result = null;
+        try {
+            PreparedStatement preparedStatement = getConnection().prepareStatement(selectQuery);
+            preparedStatement.setInt(1, id);
+            result = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            logger.severe("ERROR: Unable to execute select query.");
+        }
+        return result;
     }
 }
