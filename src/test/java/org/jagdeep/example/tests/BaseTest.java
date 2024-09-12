@@ -9,25 +9,16 @@ import org.jagdeep.example.tests.config.Config;
 import org.jagdeep.example.hsqldb.HSQLDB;
 
 public class BaseTest {
-	protected String tableName;
-	protected String sql;
-	protected String testExpected;
+	protected String actualTableName;
+	protected String actualSql;
+	protected String testExpectedDescription;
 	protected String testDescription;
 	protected String expectedResults;
 	protected ITable actualSQLData;
 	protected ITable expectedSQLResult;
 	protected String assertionFailure;
 	 IDatabaseConnection iDatabaseConnection = null;
-	final Config config = new Config();
-	protected BaseTest() throws IOException {
-		String path = "src/test/resources/test.properties";
-		config.setTestConfig(path);
-		this.tableName = config.getTableName();
-		this.sql =  config.getSql();
-		this.testExpected = config.getTestExpected();
-		this.testDescription = config.getTestDescription();
-		this.expectedResults = config.getExpectedResults();
-	}
+
 	protected String getQualifiedTestName() {
 		return this.getClass().getCanonicalName();
 	}

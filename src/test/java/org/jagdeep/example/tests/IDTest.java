@@ -10,13 +10,21 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.fail;
+import org.jagdeep.example.tests.config.Config;
 
 public class IDTest extends BaseTest {
 	private final HSQLDB hsqldb = HSQLDB.getInstance();
 	private final Util util = new Util();
 
 	public IDTest() throws IOException {
-		super();
+		Config config = new Config();
+		String path = "src/test/resources/test.properties";
+		config.setConfig(path);
+		this.actualTableName = config.getEmployeeIDTestActualTableName();
+		this.actualSql =  config.getEmployeeIDTestActualSql();
+		this.testExpectedDescription = config.getEmployeeIDExpectedResults();
+		this.testDescription = config.getEmployeeIDTestDescription();
+		this.expectedResults = config.getEmployeeIDExpectedResults();
 	}
 
 	@Before
@@ -31,15 +39,15 @@ public class IDTest extends BaseTest {
 		hsqldb.insert("insert into employee " +
 				"(id, first_name, last_name) values (?, ?, ?)",
 				1001, "John", "Doe");
-		actualSQLData = util.getActualResults(tableName, sql);
-		expectedSQLResult = util.getExpectedResults(tableName, expectedResults);
+		actualSQLData = util.getActualResults(actualTableName, actualSql);
+		expectedSQLResult = util.getExpectedResults(actualTableName, expectedResults);
 		try {
 			Assertion.assertEquals(expectedSQLResult, actualSQLData);
 		} catch (ComparisonFailure cf) {
 			assertionFailure = cf.getMessage();
 			AssertionLogger.writeTestAssertionsFailures(getQualifiedTestName(),
-					testDescription, testExpected, assertionFailure);
-			util.exportToXML(tableName, sql, getQualifiedTestName());
+					testDescription, testExpectedDescription, assertionFailure);
+			util.exportToXML(actualTableName, actualSql, getQualifiedTestName());
 			fail();
 		}
 	}

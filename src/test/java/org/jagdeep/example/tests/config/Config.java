@@ -5,36 +5,39 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Config {
-	String testDescription;
-	String testExpected;
-	String sql;
-	String tableName;
-	String expectedResults;
+	String employeeIDTestDescription;
+	String employeeIDTestActualSql;
+	String employeeIDTestActualTableName;
+	String employeeIDExpectedResults;
 	final java.util.Properties properties = new java.util.Properties();
 	InputStream inputStream;
 
-	public void setTestConfig(String path) throws IOException {
+	public void setConfig(String path) throws IOException {
 		inputStream = new FileInputStream(path);
 		properties.load(inputStream);
-		this.testDescription = properties.getProperty("test.description");
-		this.testExpected = properties.getProperty("test.expected");
-		this.sql = properties.getProperty("sql");
-		this.tableName = properties.getProperty("tableName");
-		this.expectedResults = properties.getProperty("expectedResults.IDTest");
+		this.employeeIDTestDescription =
+				properties.getProperty("employee.id.test.description");
+		this.employeeIDTestActualSql =
+				properties.getProperty("employee.id.test.actual.sql");
+		this.employeeIDTestActualTableName =
+				properties.getProperty("employee.id.test.actual.table.name");
+		this.employeeIDExpectedResults =
+				properties.getProperty("employee.id.expected.results");
 	}
-	public String getTestDescription() {
-		return this.testDescription;
+
+	public String getEmployeeIDTestDescription() {
+		return employeeIDTestDescription;
 	}
-	public String getTestExpected()  {
-		return this.testExpected;
+
+	public String getEmployeeIDTestActualSql() {
+		return employeeIDTestActualSql;
 	}
-	public String getSql() {
-		return this.sql;
+
+	public String getEmployeeIDTestActualTableName() {
+		return employeeIDTestActualTableName;
 	}
-	public String getTableName()  {
-		return this.tableName;
-	}
-	public String getExpectedResults()  {
-		return this.expectedResults;
+
+	public String getEmployeeIDExpectedResults() {
+		return employeeIDExpectedResults;
 	}
 }
