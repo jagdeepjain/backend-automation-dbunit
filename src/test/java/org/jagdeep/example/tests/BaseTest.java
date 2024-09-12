@@ -1,11 +1,9 @@
 package org.jagdeep.example.tests;
 
-import java.io.IOException;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.ITable;
-import org.jagdeep.example.tests.config.Config;
 import org.jagdeep.example.hsqldb.HSQLDB;
 
 public class BaseTest {
