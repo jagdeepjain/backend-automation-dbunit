@@ -5,7 +5,7 @@ import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.ITable;
-import org.jagdeep.example.tests.properties.Properties;
+import org.jagdeep.example.tests.config.Config;
 import org.jagdeep.example.hsqldb.HSQLDB;
 
 public class BaseTest {
@@ -18,18 +18,15 @@ public class BaseTest {
 	protected ITable expectedSQLResult;
 	protected String assertionFailure;
 	 IDatabaseConnection iDatabaseConnection = null;
-	final Properties properties = new Properties();
+	final Config config = new Config();
 	protected BaseTest() throws IOException {
-		String path = "src/test/resources/" + getTestName() + "/test.properties";
-		properties.setTestProperties(path);
-		this.tableName = properties.getTableName();
-		this.sql =  properties.getSql();
-		this.testExpected = properties.getTestExpected();
-		this.testDescription = properties.getTestDescription();
-		this.expectedResults = properties.getExpectedResults();
-	}
-	protected String getTestName() {
-		return this.getClass().getSimpleName();
+		String path = "src/test/resources/test.properties";
+		config.setTestConfig(path);
+		this.tableName = config.getTableName();
+		this.sql =  config.getSql();
+		this.testExpected = config.getTestExpected();
+		this.testDescription = config.getTestDescription();
+		this.expectedResults = config.getExpectedResults();
 	}
 	protected String getQualifiedTestName() {
 		return this.getClass().getCanonicalName();

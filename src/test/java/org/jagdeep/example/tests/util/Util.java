@@ -1,4 +1,4 @@
-package org.jagdeep.example.tests.processor;
+package org.jagdeep.example.tests.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
-public class Processor {
+public class Util {
     IDatabaseConnection iDatabaseConnection = null;
     public void setDatabaseConnection(IDatabaseConnection iDatabaseConnection) {
         this.iDatabaseConnection = iDatabaseConnection;

@@ -1,10 +1,10 @@
-package org.jagdeep.example.tests.properties;
+package org.jagdeep.example.tests.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Properties {
+public class Config {
 	String testDescription;
 	String testExpected;
 	String sql;
@@ -13,14 +13,14 @@ public class Properties {
 	final java.util.Properties properties = new java.util.Properties();
 	InputStream inputStream;
 
-	public void setTestProperties(String path) throws IOException {
+	public void setTestConfig(String path) throws IOException {
 		inputStream = new FileInputStream(path);
 		properties.load(inputStream);
 		this.testDescription = properties.getProperty("test.description");
 		this.testExpected = properties.getProperty("test.expected");
 		this.sql = properties.getProperty("sql");
 		this.tableName = properties.getProperty("tableName");
-		this.expectedResults = properties.getProperty("expectedResults");
+		this.expectedResults = properties.getProperty("expectedResults.IDTest");
 	}
 	public String getTestDescription() {
 		return this.testDescription;
