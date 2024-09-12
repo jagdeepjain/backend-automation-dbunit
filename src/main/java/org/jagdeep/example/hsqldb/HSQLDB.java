@@ -8,7 +8,7 @@ public class HSQLDB {
     public static final String PASSWORD = "";
     public static final String DRIVER_CLASS = "org.hsqldb.jdbc.JDBCDriver";
     private static final HSQLDB instance = new HSQLDB();
-    final java.util.logging.Logger logger =  
+    final java.util.logging.Logger logger =
             java.util.logging.Logger.getLogger(this.getClass().getName());
 
     private HSQLDB() {
@@ -36,7 +36,8 @@ public class HSQLDB {
         }
         return connection;
     }
-    public void create(String sqlQuery)  {
+
+    public void create(String sqlQuery) {
         try {
             Statement statement = getConnection().createStatement();
             statement.executeQuery(sqlQuery);
@@ -44,6 +45,7 @@ public class HSQLDB {
             logger.severe("ERROR: Unable to execute query.");
         }
     }
+
     public void insert(String insertQuery, int id, String firstName, String lastName) {
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(insertQuery);
@@ -55,6 +57,7 @@ public class HSQLDB {
             logger.severe("ERROR: Unable to execute insert query.");
         }
     }
+
     public void update(String updateQuery, int id, String firstName, String lastName) {
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(updateQuery);
@@ -66,6 +69,7 @@ public class HSQLDB {
             logger.severe("ERROR: Unable to execute update query.");
         }
     }
+
     public ResultSet select(String selectQuery, int id) {
         ResultSet result = null;
         try {

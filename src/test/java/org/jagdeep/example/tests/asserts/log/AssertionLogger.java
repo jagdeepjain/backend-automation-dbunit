@@ -1,20 +1,24 @@
 /**
  * @author jagdeepjain
- *
  */
 package org.jagdeep.example.tests.asserts.log;
+
+import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.io.FileUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Logger;
-import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.io.FileUtils;
 
 public class AssertionLogger {
     private static final Logger logger = Logger.getLogger(AssertionLogger.class.getName());
+
     public static void writeTestAssertionsFailures(String fileName,
-            String testDescription, String testExpected, String assertionFailure) throws IOException {
+                                                   String testDescription,
+                                                   String testExpected,
+                                                   String assertionFailure)
+            throws IOException {
         File file = new File(fileName + ".log");
         BufferedWriter output = new BufferedWriter(new FileWriter(file));
         try {
