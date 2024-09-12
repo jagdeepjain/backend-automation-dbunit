@@ -1,4 +1,4 @@
-package org.jagdeep.example.tests.db.hsqldb;
+package org.jagdeep.example.hsqldb;
 
 import java.sql.*;
 

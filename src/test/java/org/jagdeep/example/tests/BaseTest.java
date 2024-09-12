@@ -6,7 +6,7 @@ import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.ITable;
 import org.jagdeep.example.tests.properties.Properties;
-import org.jagdeep.example.tests.db.hsqldb.HSQLDB;
+import org.jagdeep.example.hsqldb.HSQLDB;
 
 public class BaseTest {
 	protected String tableName;

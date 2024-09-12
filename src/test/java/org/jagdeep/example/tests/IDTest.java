@@ -5,7 +5,7 @@ import junit.framework.ComparisonFailure;
 import org.dbunit.Assertion;
 import org.jagdeep.example.tests.asserts.log.AssertionLogger;
 import org.jagdeep.example.tests.processor.Processor;
-import org.jagdeep.example.tests.db.hsqldb.HSQLDB;
+import org.jagdeep.example.hsqldb.HSQLDB;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
